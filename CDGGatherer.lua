@@ -1,6 +1,8 @@
 local function CDGGathererInteractBusy()
-	if IsPlayerInteractingWithObject() and getInteractionType() == INTERACTION_HARVEST then
-		d(string.format("Player harvesting "))
+	if IsPlayerInteractingWithObject() then
+		if (getInteractionType() == INTERACTION_HARVEST) then
+			d(string.format("Player harvesting "))
+		end
 	end
 end
 
@@ -13,5 +15,5 @@ function CDGGatherer_OnInitialized()
 end
 
 function CDGGatherer_OnUpdate()
-	self:CDGGathererInteractBusy()
+	CDGGathererInteractBusy()
 end
