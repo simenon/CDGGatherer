@@ -5,7 +5,7 @@ function CDGGathererInteractBusy()
 		if IsPlayerInteractingWithObject() then
 			if (GetInteractionType() == INTERACTION_HARVEST) then
 				Player.Harvesting = true
-				_, nodename = GetGameCameraInteractableInfo()
+				_, nodename = GetGameCameraInteractableActionInfo()
 				d(string.format("Player harvesting %s", nodename))
 			end
 		end
