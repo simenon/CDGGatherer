@@ -9,6 +9,9 @@ local function CDGGathererLootReceived(eventCode, receivedBy, itemName, quantity
 end
 
 function CDGGatherer_OnInitialized()
-	EVENT_MANAGER:RegisterForEvent("CDGGatherer",EVENT_INTERACT_BUSY, CDGGathererInteractBusy)
 	EVENT_MANAGER:RegisterForEvent("CDGGatherer",EVENT_LOOT_RECEIVED, CDGGathererLootReceived)
+end
+
+function CDGGatherer_OnUpdate()
+	self:CDGGathererInteractBusy()
 end

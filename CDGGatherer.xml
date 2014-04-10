@@ -4,6 +4,10 @@
             <OnInitialized>
                 CDGGatherer_OnInitialized()
             </OnInitialized>
+
+						<OnUpdate>
+							CDGGatherer_OnUpdate()
+						</OnUpdate>
         </TopLevelControl>
     </Controls>
 </GuiXml>
