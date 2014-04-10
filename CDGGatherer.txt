@@ -1,5 +1,6 @@
 ## Title: CDGGatherer
 ## APIVersion: 100003
+## SavedVariables: CDGGatherer_SavedVariables
 
 CDGGatherer.lua
 CDGGatherer.xml
