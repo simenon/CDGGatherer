@@ -1,0 +1,5 @@
+## Title: CDGGatherer
+## APIVersion: 100003
+
+CDGGatherer.lua
+CDGGatherer.xml
