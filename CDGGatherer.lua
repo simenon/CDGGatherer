@@ -1,13 +1,17 @@
-local function CDGGathererInteractBusy()
+function CDGGathererInteractBusy()
 	if IsPlayerInteractingWithObject() then
 		if (getInteractionType() == INTERACTION_HARVEST) then
-			d(string.format("Player harvesting "))
+			d(string.format("Player harvesting"))
 		end
 	end
 end
 
-local function CDGGathererLootReceived(eventCode, receivedBy, itemName, quantity, itemSound, lootType, self)
-	d(string.format("%d: %d %s looted by %s type %s [%s]",eventCode,quantity,itemName,receivedBy,lootType, tostring(self)    ))
+function CDGGathererLootReceived(_, _, itemName, quantity, _, _, self)
+	if not self then
+		return
+	end
+
+	d(string.format("looted %d %s",quantity,itemName ))
 end
 
 function CDGGatherer_OnInitialized()
