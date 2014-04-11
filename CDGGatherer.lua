@@ -86,7 +86,7 @@ function CDGGathererLootReceived(_, _, itemName, quantity, _, _, self)
 		return
 	end
 
-	itemName = string.gsub(itemName,"%^p","")
+	itemName = string.gsub(itemName,"%^[pn]","")
 	d(string.format("looted %d %s",quantity,itemName ))
 	Player.Harvesting = false
 end
