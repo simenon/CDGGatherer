@@ -86,22 +86,18 @@ function CDGGathererLootReceived(_, _, itemName, quantity, _, _, self)
 		return
 	end
 
-	itemName = string.gsub(itemName,"%^[pn]","")
-	d(string.format("looted %d %s",quantity,itemName ))
 	Player.Harvesting = false
 end
 
 function CDGGathererLootItemFailed()
 	if Player.Harvesting then
 		Player.Harvesting = false
-		d(string.format("Stopped harvesting" ))			
 	end
 end
 
 function CDGGathererChatterEnd()
 	if Player.Harvesting then
 		Player.Harvesting = false
-		d(string.format("Stopped harvesting" ))		
 	end
 end
 
@@ -111,14 +107,9 @@ function CDGGathererAddOnLoaded (eventCode, addOnName)
     end
 end
 
-function CDGGathererMoneyUpdate(eventCode, newMoney, oldMoney, reason)
-	d(string.format("%d Gold", newMoney - oldMoney))
-end
-
 function CDGGatherer_OnInitialized()
 	Player.Harvesting = false
 	
-	EVENT_MANAGER:RegisterForEvent("CDGGatherer",EVENT_MONEY_UPDATE, CDGGathererMoneyUpdate)
 	EVENT_MANAGER:RegisterForEvent("CDGGatherer",EVENT_CHATTER_END, CDGGathererChatterEnd)
 	EVENT_MANAGER:RegisterForEvent("CDGGatherer",EVENT_LOOT_ITEM_FAILED, CDGGathererLootItemFailed)
 	EVENT_MANAGER:RegisterForEvent("CDGGatherer",EVENT_LOOT_RECEIVED, CDGGathererLootReceived)
